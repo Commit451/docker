@@ -6,7 +6,7 @@ ENV ANDROID_LICENSES android-sdk-license-5be876d5|android-sdk-license-c81a61d9
 # Installs i386 architecture required for running 32 bit Android tools
 RUN dpkg --add-architecture i386 && \
     apt-get update -y && \
-    apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 && \
+    apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 expect && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y && \
     apt-get clean
@@ -23,5 +23,5 @@ RUN cd /opt && \
     rm ${ANDROID_SDK_FILENAME} && \
     wget -q ${ACCEPT_LICENSES_URL} && \
     chmod +x ${ACCEPT_LICENSES_FILENAME} && \
-    /opt/${ACCEPT_LICENSES_FILENAME} "android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_API_LEVELS},build-tools-${ANDROID_BUILD_TOOLS_VERSION},extra-android-m2repository" "${ANDROID_LICENSES}" && \
+    ./${ACCEPT_LICENSES_FILENAME} "android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_API_LEVELS},build-tools-${ANDROID_BUILD_TOOLS_VERSION},extra-android-m2repository" "${ANDROID_LICENSES}" && \
     rm ${ACCEPT_LICENSES_FILENAME}

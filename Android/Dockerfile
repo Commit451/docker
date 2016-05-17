@@ -23,5 +23,5 @@ RUN cd /opt && \
     rm ${ANDROID_SDK_FILENAME} && \
     wget -q ${ACCEPT_LICENSES_URL} && \
     chmod +x ${ACCEPT_LICENSES_FILENAME} && \
-    ./${ACCEPT_LICENSES_FILENAME} "android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_API_LEVELS},build-tools-${ANDROID_BUILD_TOOLS_VERSION},extra-android-m2repository" "${ANDROID_LICENSES}" && \
+    /opt/${ACCEPT_LICENSES_FILENAME} "android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_API_LEVELS},build-tools-${ANDROID_BUILD_TOOLS_VERSION},extra-android-m2repository" "${ANDROID_LICENSES}" && \
     rm ${ACCEPT_LICENSES_FILENAME}

@@ -1,7 +1,7 @@
 FROM java:openjdk-8-jdk
 ENV ANDROID_SDK_VERSION r24.4.1
-ENV ANDROID_BUILD_TOOLS_VERSION 24.0.1
-ENV ANDROID_API_LEVELS android-24
+ENV ANDROID_BUILD_TOOLS_VERSION 25.0.0
+ENV ANDROID_API_LEVELS android-25
 ENV ANDROID_LICENSES android-sdk-license-5be876d5|android-sdk-license-c81a61d9
 # Installs i386 architecture required for running 32 bit Android tools
 RUN dpkg --add-architecture i386 && \

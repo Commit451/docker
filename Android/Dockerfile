@@ -1,9 +1,17 @@
 FROM java:openjdk-8-jdk
-# Install Ruby http://stackoverflow.com/a/33064386/895797
-RUN cd
-RUN apt-add-repository ppa:brightbox/ruby-ng
+
+# Install Ruby 2.0
+# From https://github.com/vallard/docker/blob/master/rails/Dockerfile
 RUN apt-get update
-RUN apt-get install ruby2.4
+# install the prerequisite patches here so that rvm will install under non-root account.
+RUN apt-get install -y curl patch gawk g++ gcc make libc6-dev patch libreadline6-dev zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 autoconf libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev
+RUN useradd -ms /bin/bash app
+USER app
+RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+RUN /bin/bash -l -c "curl -L get.rvm.io | bash -s stable --rails"
+RUN /bin/bash -l -c "rvm install 2.3"
+RUN /bin/bash -l -c "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 # Installs Android SDK
 RUN gem install android-sdk-installer
 RUN android-sdk-installer

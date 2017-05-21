@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 # Derived from https://github.com/groteck/middleman-docker
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get -y upgrade
 
 RUN apt-get install default-jdk git curl phantomjs gawk g++ gcc make libc6-dev \
   libreadline6-dev zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 bison ruby wget\

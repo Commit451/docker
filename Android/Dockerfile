@@ -1,4 +1,4 @@
-FROM java:openjdk-8-jdk
+FROM openjdk:8
 
 # install Ruby 2.3
 # From https://github.com/docker-library/ruby/blob/d2644c44a3e2a8a07f604dc4667aafdc9ac04cef/2.3/Dockerfile

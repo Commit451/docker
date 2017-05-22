@@ -1,9 +1,9 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 # Derived from https://github.com/groteck/middleman-docker
 RUN apt-get update && apt-get -y upgrade
 
-RUN apt-get install default-jdk git curl phantomjs gawk g++ gcc make libc6-dev \
-  libreadline6-dev zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 bison ruby wget\
+RUN apt-get install default-jdk git curl gawk g++ gcc make libc6-dev \
+  zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 bison ruby wget\
   autoconf libgdbm-dev libncurses5-dev automake libtool bison pkg-config libffi-dev unzip -y
 
 ENV RUBY_MAJOR 2.2
@@ -44,5 +44,6 @@ WORKDIR /data
 # Define default command.
 CMD ["bash"]
 
+# Install the Android SDK
 RUN gem install android-sdk-installer
 RUN android-sdk-installer

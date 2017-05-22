@@ -1,9 +1,7 @@
 FROM ubuntu:16.04
 RUN apt-get update && apt-get -y upgrade
 
-RUN apt-get install default-jdk git \
-  ruby wget\
-  unzip -y
+RUN apt-get install default-jdk git ruby unzip -y
 
 # Define default command.
 CMD ["bash"]
@@ -11,3 +9,4 @@ CMD ["bash"]
 # Install the Android SDK
 RUN gem install android-sdk-installer
 RUN android-sdk-installer
+ENV ANDROID_HOME=$PWD/android-sdk

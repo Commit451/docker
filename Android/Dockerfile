@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 RUN apt-get update && apt-get -y upgrade
 
-RUN apt-get install default-jdk git ruby unzip -y
+RUN apt-get install default-jdk git ruby wget unzip -y
 
 # Define default command.
 CMD ["bash"]

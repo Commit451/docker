@@ -7,6 +7,7 @@ RUN apt-get install default-jdk git ruby wget unzip -y
 CMD ["bash"]
 
 # Install the Android SDK
+# https://github.com/Commit451/android-sdk-installer
 RUN gem install android-sdk-installer
 RUN android-sdk-installer
 ENV ANDROID_HOME=$PWD/android-sdk
